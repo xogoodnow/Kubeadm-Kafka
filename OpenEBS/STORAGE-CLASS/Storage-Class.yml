@@ -1,0 +1,17 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: openebs-lvmpv
+allowVolumeExpansion: true
+parameters:
+  storage: "lvm"
+  volgroup: "NAME OF THE VOLUME GROUP "
+provisioner: local.csi.openebs.io
+allowedTopologies:
+- matchLabelExpressions:
+  - key: kubernetes.io/hostname
+    values:
+      - worker-1-hell
+      - worker-3-hell
+      - worker-2-hell
+

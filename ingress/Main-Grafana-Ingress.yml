@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt"
+spec:
+  tls:
+    - hosts:
+      - "HERE IS THE DOMAIN"
+      secretName: letsencrypt
+  rules:
+    - host: "HERE IS THE DOMAIN"
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: "NAME OF SVC TO BE CONNECTED"
+              port:
+                number: 80
+

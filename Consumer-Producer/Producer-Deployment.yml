@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: #NAME OF THE PROJECT
+  labels:
+    app: #LABEL FOR THE PROJECT
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: #NAME OF THE PROJECT
+  template:
+    metadata:
+      labels:
+        app: #NAME OF THE PROJECT
+    spec:
+      containers:
+      - name: #NAME OF THE CONTAINER
+        image: xo4ever/producer:2.9
+        env:
+        - name: KAFKA_BOOTSTRAP_SERVERS
+          value: my-release-kafka.default.svc.cluster.local
+        - name: KAFKA_INPUT_TOPIC_NAME
+          value: kangarinput
+        - name: PRODUCER_INTERVAL
+          value: "1"
+      imagePullSecrets:
+      - name: regcred
+~                                                                                                                                                                                                           
+~           
