@@ -1,11 +1,10 @@
-#Add the following modules to k8s.conf file
-
+# Add the following modules to k8s.conf file
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
 overlay
 br_netfilter
 EOF
 
-#Enable the modules on the kerne
+# Enable the modules on the kerne
 sudo modprobe overlay
 sudo modprobe br_netfilter
 
