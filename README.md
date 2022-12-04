@@ -5,7 +5,7 @@ overlay
 br_netfilter
 EOF
 
-#Enable the modules on the kerne;
+#Enable the modules on the kerne
 sudo modprobe overlay
 sudo modprobe br_netfilter
 
